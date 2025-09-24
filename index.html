@@ -266,23 +266,25 @@
 		<h2>Contacto</h2>
 		<div class="contacto-container">
 			<form id="formulario-contacto" class="formulario">
+				<input type="hidden" id="contacto-id"><!-- Campo oculto para el ID del contacto (usado en actualizaciones) -->
 				<div class="form-group">
 					<label for="nombre">Nombre:</label>
-					<input type="text" id="nombre" name="nombre" required>
+					<input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
 				</div>
 				<div class="form-group">
 					<label for="email">Email:</label>
-					<input type="email" id="email" name="email" required>
+					<input type="email" id="email" name="email" required placeholder="Ej: ejemplo@email.com">
 				</div>
 				
 				<div class="form-group">
 					<label for="telefono">Teléfono:</label>
-					<input type="tel" id="telefono" name="telefono">
+					<input type="tel" id="telefono" name="telefono" placeholder="Ej: +57 3001234567">
 				</div>
 
 				<div class="form-group">
 					<label for="motivo">Motivo del contacto:</label>
-					<select id="motivo" name="motivo">
+					<select id="motivo" name="motivo" required>
+						<option value="" disabled selected>Selecciona una opción</option>
 						<option value="consulta">Consulta general</option>
 						<option value="propuesta-laboral">Propuesta laboral</option>
 						<option value="colaboracion">Colaboración en proyecto</option>
@@ -292,17 +294,19 @@
 
 				<div class="form-group">
 					<label for="mensaje">Mensaje:</label>
-					<textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+					<textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje..."></textarea>
 				</div>
 
-				<div class="form-group radio-group">
+				<div class="form-group">
 					<p>¿Cómo prefieres que te contacte?</p>
-					<label>
-						<input type="radio" name="preferencia" value="email" checked> Email
-					</label>
-					<label>
-						<input type="radio" name="preferencia" value="telefono"> Teléfono
-					</label>
+					<div class="radio-group">
+						<label>
+							<input type="radio" name="preferencia" value="email" checked> Email
+						</label>
+						<label>
+							<input type="radio" name="preferencia" value="telefono"> Teléfono
+						</label>
+					</div>
 				</div>
 
 				<div class="form-group checkbox-group">
@@ -314,24 +318,39 @@
 				<button type="submit" id="submit-btn">Enviar Mensaje</button>
 			</form>
 
-			<div class="contactos-gestion">
-				<h3>Contactos guardados</h3>
-				<div class="acciones-lista">
-					<button id="clear-all-btn">Borrar todos</button>
-				</div>
-				<ul id="contactos-lista" class="contact-list">
-					</ul>
-			</div>
+		</div>
+	</section>
 
+
+	<section class ="lista-contactos">
+		<h2>Contactos Guardados</h2>
+		<button id="clear-all-btn">Borrar todos</button>
+		<div class="container">
+			<table id="contactos-table">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Email</th>
+						<th>Teléfono</th>
+						<th>Motivo</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody id="contactos-tbody">
+					<!-- Los contactos se agregaran aquí -->
+				</tbody>
+			</table>
 		</div>
 	</section>
 
 	<footer>
-		<p>&copy; 2024 Mi Página Personal</p>
+		<p>&copy; 2025 Mi Página Personal</p>
 	</footer>
 
+	<!-- Scripts -->
+	<script src="js/domain/Contacto.js"></script>
 	<script src="js/repository/contactRepository.js"></script>
 	<script src="js/facade/contactFacade.js"></script>
-	<script src="js/domain/main.js"></script>
+	<script src="js/domain/app.js"></script>
 </body>
 </html>

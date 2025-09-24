@@ -5,19 +5,10 @@ class ContactFacade {
     }
 
     guardarContacto(datosFormulario) {
-        const contacto = {
-            id: datosFormulario.id || null, // Para actualizar o agregar
-            nombre: datosFormulario.nombre,
-            email: datosFormulario.email,
-            telefono: datosFormulario.telefono,
-            motivo: datosFormulario.motivo,
-            mensaje: datosFormulario.mensaje,
-            aceptaTerminos: datosFormulario.aceptaTerminos,
-            preferenciaContacto: datosFormulario.preferenciaContacto,
-        };
+        const contacto = new Contacto(datosFormulario);
 
         if (contacto.id) {
-            // Lógica para actualizar (opcional, si decides añadir la funcionalidad)
+            // Actualizar contacto existente
             const existingContact = this.repository.getById(contacto.id);
             if (existingContact) {
                 Object.assign(existingContact, contacto);

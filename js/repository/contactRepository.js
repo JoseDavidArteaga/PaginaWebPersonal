@@ -5,12 +5,13 @@ class ContactRepository {
     }
 
     _loadData() {
-        const data = localStorage.getItem(this.storageKey);
-        return data ? JSON.parse(data) : [];
+        const data = localStorage.getItem(this.storageKey);// Obtiene los datos almacenados en localStorage
+        return data ? JSON.parse(data) : [];// JSON.parse convierte una cadena JSON en un objeto JavaScript
     }
 
+    //Esta función guarda los datos en localStorage cada vez que se hace una modificación
     _saveData(data) {
-        localStorage.setItem(this.storageKey, JSON.stringify(data));
+        localStorage.setItem(this.storageKey, JSON.stringify(data));// JSON.stringify convierte un objeto JavaScript en una cadena JSON
     }
 
     getAll() {
@@ -21,6 +22,7 @@ class ContactRepository {
         const contactos = this.getAll();
         return contactos.find(c => c.id === id);
     }
+    
 
     add(contacto) {
         const contactos = this.getAll();

@@ -1,5 +1,10 @@
 /*inicio*/
 
+/* Estilos para el desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+}
+
 #inicio {
     padding-top: 140px;
     text-align: center;
@@ -136,7 +141,7 @@ td {
 }
 
 tbody tr:hover {
-    background-color: #444; /* Efecto de resaltado al pasar el mouse */
+    background-color: #797979; /* Efecto de resaltado al pasar el mouse */
 }
 
 .estudios-imagen {
@@ -287,11 +292,9 @@ header, section, footer {
 }
 
 .proyectos-container {
-    display: flex; /* Habilita Flexbox */
-    justify-content: center; /* Centra las tarjetas horizontalmente */
-    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente línea en pantallas pequeñas */
-    gap: 40px; /* Espacio entre las tarjetas */
-    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .proyecto-tarjeta {
@@ -299,11 +302,13 @@ header, section, footer {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     overflow: hidden; /* Oculta partes que se desbordan, como bordes de la imagen */
-    width: 100%; /* Por defecto, ancho completo en móviles */
-    max-width: 450px; /* Ancho máximo en pantallas más grandes */
+    height: 100%;
+    width: 100%; 
+
     display: flex;
     flex-direction: column;
     text-align: left;
+    justify-content: space-between;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -313,7 +318,7 @@ header, section, footer {
 
 .proyecto-tarjeta img {
     width: 100%;
-    height: auto;
+    height: 50%;
     object-fit: cover;
     display: block;
 }
@@ -444,7 +449,7 @@ header, section, footer {
 .contacto-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     gap: 40px;
     margin-top: 40px;
 }
@@ -507,7 +512,7 @@ header, section, footer {
     background-color: #5a879e;
 }
 
-/* Estilos para la lista de contactos */
+/* Estilos para la sección de contactos */
 .contactos-gestion {
     width: 100%;
     max-width: 800px;
@@ -520,31 +525,94 @@ header, section, footer {
 
 .contactos-gestion h3 {
     text-align: center;
+    color: white;
 }
 
-.contact-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
+/* Estilos para la tabla */
+#contactos-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* mantiene las columnas alineadas */
+    margin-top: 15px;
 }
 
-.contact-item {
+#contactos-table th, 
+#contactos-table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+    color: white;
+    word-wrap: break-word;
+}
+
+#contactos-table th {
+    background-color: #46738C;
+    color: white;
+    font-weight: bold;
+}
+
+/* Fila vacía cuando no hay contactos */
+.no-contactos {
+    text-align: center;
+    color: #bbb;
     padding: 15px;
-    border-bottom: 1px solid #444;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-.contact-item:last-child {
-    border-bottom: none;
-}
-
-.contact-item .delete-btn {
+/* Botón eliminar */
+.delete-btn {
     background-color: #e62c2c;
     color: white;
     border: none;
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c82323;
+}
+
+/* Botón editar */
+.edit-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #217dbb;
+}
+
+/* Botón borrar todos */
+#clear-all-btn {
+    background-color: #e62c2c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background 0.3s ease;
+}
+
+#clear-all-btn:hover {
+    background-color: #c82323;
+}
+
+
+/* Efecto highlight al hacer scroll hacia una sección */
+.focus-highlight {
+  animation: focusPulse 1.5s ease forwards;
+}
+
+@keyframes focusPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(52,152,219,0.0); }
+  30%  { box-shadow: 0 0 0 10px rgba(52,152,219,0.15); transform: translateY(-2px); }
+  100% { box-shadow: 0 0 0 0 rgba(52,152,219,0.0); transform: translateY(0); }
 }
