@@ -570,6 +570,22 @@ tbody tr:hover {
 #clear-all-btn:hover { background-color: #c82323; }
 #clear-all-btn:focus-visible { outline: 3px solid rgba(230,44,44,0.18); outline-offset: 2px; }
 
+/* Mensajes de error debajo de los inputs */
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    display: none; /* oculto por defecto */
+}
+
+/* Resaltar borde del input con error */
+input.error,
+select.error,
+textarea.error {
+    border: 2px solid #ff4d4d;
+    outline: none;
+}
+
 /* ==============================
    EFECTOS EXTRAS
    - Highlight temporal cuando se desplaza a una sección (JS añade la clase)

@@ -287,18 +287,21 @@
 				<div class="form-group">
 					<label for="nombre">Nombre:</label>
 					<input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
+					<p class="mensaje-error"></p>
 				</div>
 
 				<!-- Campo de email -->
 				<div class="form-group">
 					<label for="email">Email:</label>
 					<input type="email" id="email" name="email" required placeholder="Ej: ejemplo@email.com">
+					<p class="mensaje-error"></p>
 				</div>
 				
 				<!-- Campo de teléfono -->
 				<div class="form-group">
 					<label for="telefono">Teléfono:</label>
 					<input type="tel" id="telefono" name="telefono" placeholder="Ej: +57 3001234567">
+					<p class="mensaje-error"></p>
 				</div>
 
 				<!-- Selección de motivo -->
@@ -311,12 +314,14 @@
 						<option value="colaboracion">Colaboración en proyecto</option>
 						<option value="otro">Otro</option>
 					</select>
+					<p class="mensaje-error"></p>
 				</div>
 
 				<!-- Campo de mensaje -->
 				<div class="form-group">
 					<label for="mensaje">Mensaje:</label>
 					<textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje..."></textarea>
+					<p class="mensaje-error"></p>
 				</div>
 
 				<!-- Preferencia de contacto (radio buttons) -->
@@ -330,6 +335,7 @@
 							<input type="radio" name="preferencia" value="telefono"> Teléfono
 						</label>
 					</div>
+					<p class="mensaje-error"></p>
 				</div>
 
 				<!-- Checkbox de aceptación -->
@@ -337,6 +343,7 @@
 					<label>
 						<input type="checkbox" id="acepta-terminos" required> Acepto los términos y condiciones.
 					</label>
+					<p class="mensaje-error"></p>
 				</div>
 
 				<!-- Botón de envío -->
