@@ -1,105 +1,136 @@
-/*inicio*/
+/* =========================================================
+   HOJA DE ESTILOS DOCUMENTADA (comentarios a nivel de bloque)
+   Propósito: explicar el porqué de las reglas principales,
+   qué efecto tienen y recomendaciones prácticas.
+   ========================================================= */
 
-/* Estilos para el desplazamiento suave */
+/* ==============================
+   CONFIGURACIONES GENERALES
+   - Reglas que afectan a toda la página:
+     - scroll-behavior: smooth para desplazamientos suaves
+     - estilos base del body y tipografía
+   ============================== */
 html {
+    /* Habilita desplazamiento suave para anclas y scroll programático */
     scroll-behavior: smooth;
 }
 
-#inicio {
-    padding-top: 140px;
+body {
+    background-color: rgb(49, 49, 49);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+header, section, footer {
+    padding: 2rem;
     text-align: center;
 }
 
-/* Estilos para la sección de inicio */
+/* ==============================
+   SECCIÓN INICIO
+   - Contenedor de la cabecera personal.
+   - Uso de flex para centrar vertical/horizontalmente.
+   - Diseñado para que el bloque principal tenga fondo semi-transparente
+     y efecto "glass" (backdrop-filter).
+   ============================== */
+#inicio {
+    padding-top: 140px; /* deja espacio para el header fijo al navegar por anclas */
+    text-align: center;
+}
+
 .seccion-inicio {
-    display: flex; /* Habilita flexbox para el contenedor */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    height: 90vh; /* Ocupa toda la altura de la ventana */
-    padding: 20px;
-    text-align: center; /* Alinea el texto al centro */
-    box-sizing: border-box; /* Incluye el padding en el tamaño total */
-}
-
-/* Contenedor de la información personal */
-.info-personal {
-    max-width: 1000px; /* Ancho máximo para el contenido */
-    padding: 40px;
-    background-color: rgba(80, 80, 80, 0.9); /* Fondo semitransparente */
-    border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra para efecto de profundidad */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque, ¡muy moderno! */
     display: flex;
-    flex-direction: column; /* Organiza los elementos en columna */
-    align-items: center; /* Centra los elementos de la columna */
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
-/* Estilos para la foto de perfil */
+.info-personal {
+    max-width: 1000px;
+    padding: 40px;
+    background-color: rgba(80, 80, 80, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .personal-photo {
     width: 180px;
     height: 180px;
-    border-radius: 50%; /* Hace la imagen circular */
-    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
-    border: 4px solid #ffffff; /* Borde alrededor de la imagen */
-    box-shadow: 0 0 15px rgb(255, 226, 4); /* Brillo alrededor del borde */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 15px rgb(255, 226, 4);
     margin-bottom: 20px;
 }
 
-/* Estilos para el título y la fecha */
 .title {
-    font-size: 1.9 rem;
+    font-size: 1.9rem; /* corregido: 1.9rem (sin espacio) */
     margin: 10px 0;
-    color: #e6e6e6; /* Color de texto más claro */
+    color: #e6e6e6;
 }
 
 .birth-date {
     font-size: 1rem;
-    color: #a8a8a8; /* Color de texto más suave */
+    color: #a8a8a8;
     margin-top: 0;
 }
 
-/* Estilos para la descripción */
 .description {
-    font-size: 0.9 rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #d1d1d1;
-    text-align: justify; /* Alinea el texto para una mejor lectura */
+    text-align: justify;
     margin-top: 10px;
 }
 
-
-
-/* Estilos para que la barra de navegación se quede pegada */
+/* ==============================
+   NAVEGACIÓN (barra fija)
+   - Barra fija en la parte superior.
+   - Usa flex para posicionar título a la izquierda y enlaces a la derecha.
+   - Si cambias la altura del header, ajusta también el padding-top
+     de las secciones (#inicio, #estudios, #contacto, etc.) o usa
+     :target { scroll-margin-top: <altura-header>; } para compensar.
+   ============================== */
 .navegacion-fija {
-	position: fixed; /* Fija la barra en la ventana del navegador */
-	top: 0; /* La coloca en la parte superior */
-	width: 100%; /* Le da el ancho completo */
-	background-color: rgba(51, 51, 51, 0.8); /* Color de fondo */
-	z-index: 1000; /* Asegura que esté por encima de otros elementos */
-	padding: 15px 40px; /* Espacio interno para que se vea bien */
-	text-align: center; /* Centra los enlaces */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.8);
+    z-index: 1000;
+    padding: 15px 40px;
+    text-align: center;
+    box-sizing: border-box;
 
-	box-sizing: border-box; /* Incluye el padding en el ancho total */
-
-	/* Estilos Flexbox */
-	display: flex;
-	justify-content: space-between; /* Distribuye los elementos en los extremos */
-	align-items: center; /* Centra los elementos verticalmente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navegacion-fija a {
-	color: white;
-	text-decoration: none;
-	margin: 0 20px;
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
 }
 
 .navegacion-fija h1 {
-	color: white;
-	text-decoration: none;
-	margin: 0;
+    color: white;
+    margin: 0;
 }
 
-/* Estilos para la sección de estudios */
+/* ==============================
+   SECCIÓN ESTUDIOS
+   - Tabla de estudios con wrapper para fondo y sombreado.
+   - Uso de estilos para que sea legible en tema oscuro.
+   ============================== */
 #estudios {
     padding-top: 60px;
     text-align: center;
@@ -121,7 +152,7 @@ html {
 
 table {
     width: 100%;
-    border-collapse: collapse; /* Elimina los bordes dobles de las celdas */
+    border-collapse: collapse; /* evita bordes dobles entre celdas */
     color: white;
     font-size: 1rem;
 }
@@ -141,7 +172,7 @@ td {
 }
 
 tbody tr:hover {
-    background-color: #797979; /* Efecto de resaltado al pasar el mouse */
+    background-color: #797979;
 }
 
 .estudios-imagen {
@@ -153,24 +184,12 @@ tbody tr:hover {
     border: 2px solid #888;
 }
 
-
-
-/* Estilos generales */
-body {
-		background-color: rgb(49, 49, 49);
-		color: white;
-		font-family: 'JetBrains Mono', monospace;
-		margin: 0;
-		padding: 0;
-}
-
-header, section, footer {
-		padding: 2rem;
-		text-align: center;
-}
-
-/* Estilos para el carrusel */
-/* Nuevos estilos del carrusel */
+/* ==============================
+   SECCIÓN PASATIEMPOS (CARRUSEL)
+   - Grid + scroll-snap para carrusel horizontal.
+   - El bloque incluye estilos experimentales para botones de scroll
+     y marcadores; si no los usas puedes ignorar esas reglas.
+   ============================== */
 #pasatiempos {
     padding-top: 60px;
     text-align: center;
@@ -192,11 +211,13 @@ header, section, footer {
     margin: auto;
 }
 
+/* (Reglas con sintaxis avanzada/experimental para botones e indicadores.
+   Están documentadas pero podrían no funcionar en todos los navegadores.) */
 .carousel {
   &::scroll-button(*) {
     inline-size: 48px;
     aspect-ratio: 1;
-    border-radius: 1e3px;
+    border-radius: 1000px;
     border: 2px solid #999;
     margin: 5px;
   }
@@ -250,13 +271,12 @@ header, section, footer {
     flex-shrink: 0;
     width: 100vw;
     max-width: 250px;
-    height: auto;
     margin: 0 10px;
-    position: relative;
     border: 3px solid #888;
     border-radius: 10px;
     overflow: hidden;
     scroll-snap-align: center;
+    position: relative;
 }
 
 .content > li img {
@@ -266,9 +286,9 @@ header, section, footer {
 }
 
 .content > li:hover {
-	    transform: scale(1.05);
-		    transition: transform 0.3s ease-in-out;
-		    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .content > li .text-overlay {
@@ -277,15 +297,16 @@ header, section, footer {
     left: 0;
     width: 100%;
     padding: 15px;
-    box-sizing: border-box;
     background: rgba(0, 0, 0, 0.6);
     color: white;
     text-align: left;
+    box-sizing: border-box;
 }
 
-
-
-/* Sección de Proyectos */
+/* ==============================
+   SECCIÓN PROYECTOS
+   - Tarjetas en grid; efecto hover para "levitar".
+   ============================== */
 #proyectos {
     padding: 60px 20px;
     text-align: center;
@@ -298,13 +319,11 @@ header, section, footer {
 }
 
 .proyecto-tarjeta {
-    background-color: #2e2e2e; /* Fondo oscuro de la tarjeta */
+    background-color: #2e2e2e;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    overflow: hidden; /* Oculta partes que se desbordan, como bordes de la imagen */
+    overflow: hidden;
     height: 100%;
-    width: 100%; 
-
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -313,7 +332,7 @@ header, section, footer {
 }
 
 .proyecto-tarjeta:hover {
-    transform: translateY(-10px); /* Efecto de levitación al pasar el mouse */
+    transform: translateY(-10px);
 }
 
 .proyecto-tarjeta img {
@@ -368,7 +387,11 @@ header, section, footer {
     background-color: #5a879e;
 }
 
-/* Estilos para la sección de Contacto */
+/* ==============================
+   SECCIÓN CONTACTO (FORMULARIO)
+   - Contenedor del formulario con ancho máximo y estilo coherente
+     con el tema oscuro del sitio.
+   ============================== */
 #contacto {
     padding-top: 60px;
     text-align: center;
@@ -440,82 +463,22 @@ header, section, footer {
     background-color: #5a879e;
 }
 
-/* Estilos para la sección de Contacto */
-#contacto {
-    padding-top: 60px;
-    text-align: center;
-}
-
-.contacto-container {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.formulario {
-    width: 100%;
-    max-width: 600px;
-    padding: 30px;
-    background-color: #2e2e2e;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    text-align: left;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #ccc;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #444;
-    background-color: #333;
-    color: white;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.radio-group, .checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.radio-group p {
-    margin-bottom: 5px;
-}
-
-#submit-btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3d6f88;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#submit-btn:hover {
-    background-color: #5a879e;
-}
-
-/* Estilos para la sección de contactos */
+/* ==============================
+   SECCIÓN CONTACTOS (TABLA)
+   - Bloque DOCUMENTADO (explicación amplia sobre decisiones)
+   - Propósito: mostrar la lista de contactos en una tabla legible,
+     con columnas fijas para mantener alineación con el encabezado.
+   - Notas importantes:
+     * table-layout: fixed -> hace que el navegador distribuya el ancho
+       en columnas fijas; evita que una celda con texto largo estire
+       toda la fila. Con fixed, los contenidos largos deben envolverse.
+     * overflow-wrap / word-wrap: forzar quiebre de palabras largas
+       (emails largos, mensajes) para no romper el layout.
+     * Usar <th scope="col"> en el HTML mejora accesibilidad.
+   ============================== */
 .contactos-gestion {
+    /* Contenedor principal de la tabla de contactos */
     width: 100%;
-    max-width: 800px;
     text-align: left;
     background-color: #2e2e2e;
     padding: 20px;
@@ -524,41 +487,46 @@ header, section, footer {
 }
 
 .contactos-gestion h3 {
+    /* Título dentro del contenedor (centrado visualmente) */
     text-align: center;
     color: white;
 }
 
-/* Estilos para la tabla */
+/* Tabla: ancho total y layout fijo para columnas */
 #contactos-table {
     width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; /* mantiene las columnas alineadas */
+    border-collapse: collapse; /* evita doble borde entre celdas */
+    table-layout: fixed;        /* fuerzas columnas con anchuras deterministas */
     margin-top: 15px;
 }
 
-#contactos-table th, 
+/* Estilo base de celdas: bordes, padding y quiebre de palabra */
+#contactos-table th,
 #contactos-table td {
     border: 1px solid #444;
     padding: 10px;
     text-align: left;
     color: white;
-    word-wrap: break-word;
+    /* overflow-wrap moderno para forzar quiebre de palabras largas */
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 
+/* Estilo del encabezado: fondo contrastado y texto en negrita */
 #contactos-table th {
     background-color: #46738C;
-    color: white;
     font-weight: bold;
 }
 
-/* Fila vacía cuando no hay contactos */
+/* Fila a mostrar cuando la lista está vacía */
 .no-contactos {
     text-align: center;
     color: #bbb;
     padding: 15px;
 }
 
-/* Botón eliminar */
+/* Botones dentro de la tabla: mantener consistencia visual y accesibilidad */
+/* BORRAR */
 .delete-btn {
     background-color: #e62c2c;
     color: white;
@@ -569,11 +537,11 @@ header, section, footer {
     transition: background 0.3s ease;
 }
 
-.delete-btn:hover {
-    background-color: #c82323;
-}
+/* HOVER + FOCUS visible para usuarios de teclado */
+.delete-btn:hover { background-color: #c82323; }
+.delete-btn:focus-visible { outline: 3px solid rgba(230,44,44,0.25); outline-offset: 2px; }
 
-/* Botón editar */
+/* EDITAR */
 .edit-btn {
     background-color: #3498db;
     color: white;
@@ -582,14 +550,13 @@ header, section, footer {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 5px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.08s ease;
 }
+.edit-btn:hover { background-color: #217dbb; }
+.edit-btn:active { transform: translateY(1px); }
+.edit-btn:focus-visible { outline: 3px solid rgba(52,152,219,0.22); outline-offset: 2px; }
 
-.edit-btn:hover {
-    background-color: #217dbb;
-}
-
-/* Botón borrar todos */
+/* Botón de borrar todos (fuera de la tabla) */
 #clear-all-btn {
     background-color: #e62c2c;
     color: white;
@@ -600,13 +567,13 @@ header, section, footer {
     margin-bottom: 10px;
     transition: background 0.3s ease;
 }
+#clear-all-btn:hover { background-color: #c82323; }
+#clear-all-btn:focus-visible { outline: 3px solid rgba(230,44,44,0.18); outline-offset: 2px; }
 
-#clear-all-btn:hover {
-    background-color: #c82323;
-}
-
-
-/* Efecto highlight al hacer scroll hacia una sección */
+/* ==============================
+   EFECTOS EXTRAS
+   - Highlight temporal cuando se desplaza a una sección (JS añade la clase)
+   ============================== */
 .focus-highlight {
   animation: focusPulse 1.5s ease forwards;
 }
@@ -616,3 +583,28 @@ header, section, footer {
   30%  { box-shadow: 0 0 0 10px rgba(52,152,219,0.15); transform: translateY(-2px); }
   100% { box-shadow: 0 0 0 0 rgba(52,152,219,0.0); transform: translateY(0); }
 }
+
+/* ==============================
+   RECOMENDACIONES / ADICIONES ÚTILES
+   - Media queries para responsividad de la tabla
+   - Variables para la altura del header si el header cambia
+   ============================== */
+
+/* Recomiendo definir una variable para la altura del header y usarla
+   si compensas scroll por CSS (:target) o JS. Ejemplo:
+   :root { --header-height: 72px; }
+   :target { scroll-margin-top: var(--header-height); }
+*/
+
+/* En pantallas pequeñas permite scroll horizontal en la tabla
+   en lugar de romper el layout (mejor experiencia móvil) */
+@media (max-width: 700px) {
+    #contactos-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap; /* las celdas se mantienen en línea y pueden scrollear */
+    }
+}
+
+/* Fin de la hoja de estilos */
